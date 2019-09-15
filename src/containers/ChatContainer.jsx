@@ -4,6 +4,7 @@ import Message from '../components/Message';
 import '../css/main.css';
 import { Container, Row, Col, Alert } from 'react-bootstrap';
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 const mapStateToProps = function(state) {
 	return {
@@ -45,5 +46,9 @@ class ChatContainer extends React.Component {
 		)
 	}
 }
+
+ChatContainer.propTypes = {
+	chatHistory: PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps)(ChatContainer)

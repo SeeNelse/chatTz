@@ -8,7 +8,8 @@ const Message = ({message}) => {
 			<Card.Body className='d-flex flex-row'>
 				<UserAvatar className='mr-3' size="38" name={`${message.username}`} style={{color: '#ffffff'}} />
 				<div>
-					<Card.Subtitle className="mb-1 text-muted">{message.username} | {message.time}</Card.Subtitle>
+					<Card.Title>{message.username}</Card.Title>
+					<Card.Subtitle className="mb-1 text-muted">{message.time}</Card.Subtitle>
 					<Card.Text>{message.messageText}</Card.Text>
 				</div>
 			</Card.Body>

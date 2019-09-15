@@ -4,6 +4,7 @@ import * as actionCreators from "../actions/Actions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import currentDate from "../helpers/currentDate";
+import PropTypes from "prop-types";
 
 const mapStateToProps = function(state) {
 	return {
@@ -54,7 +55,7 @@ class MessageForm extends React.Component {
 				<Row>
 					<Col xs={12}>
 						<Form ref='form' onSubmit={this.newMessage} onKeyPress={this.handleKeyPress} className='d-flex flex-column align-items-end'>
-							<Form.Control name="message" as="textarea" rows="2" className='mb-1' />
+							<Form.Control name="message" as="textarea" rows="2" className='mb-2' />
 							<Button variant="primary" type="submit">Send</Button>
 						</Form>
 					</Col>
@@ -63,5 +64,11 @@ class MessageForm extends React.Component {
 		)
 	}
 }
+
+MessageForm.propTypes = {
+	isLogged: PropTypes.bool.isRequired,
+	userName: PropTypes.string.isRequired,
+	chatHistory: PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageForm)
